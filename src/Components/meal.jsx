@@ -1,10 +1,12 @@
+import { useState } from "react";
 export default function Meal({ meal }) {
-    const handleOrder = ()=>{
-        console.log("Button Clicked");
+    const [order, setOrder] = useState(false);
+    const handleOrder = () => {
+       setOrder(!order);
     }
     return (
-        <div>
-            <div className="card card-side bg-base-100 shadow-sm">
+        <div className={order ? "bg-green-500" : "bg-red-600"}>
+            <div className="card card-side  shadow-sm">
                 <figure>
                     <img
                         src={meal.strMealThumb}
@@ -12,7 +14,7 @@ export default function Meal({ meal }) {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{meal.strMeal}</h2>
-                    <p>{meal.strInstructions}</p>
+                    <p >{meal.strInstructions}</p>
                     <tbody className="table table-pin-rows bg-sky-300">
                         <tr><td>{meal.strMeasure1}</td></tr>
                         <tr><td>{meal.strMeasure2}</td></tr>
@@ -21,7 +23,9 @@ export default function Meal({ meal }) {
                         <tr><td>{meal.strMeasure5}</td></tr>
                     </tbody>
                     <div className="card-actions justify-end">
-                        <button onClick={handleOrder} className="btn btn-primary">Order</button>
+                        <button onClick={handleOrder} className="btn btn-primary">{
+                            order ? "Ordered" : "Not selected"
+                        }</button>
                     </div>
                 </div>
             </div>
