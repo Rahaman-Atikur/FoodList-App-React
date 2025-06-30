@@ -1,8 +1,10 @@
 import { useState } from "react";
-export default function Meal({ meal }) {
+export default function Meal({ meal , handleOrderedItems}) {
+    console.log(handleOrderedItems);
     const [order, setOrder] = useState(false);
     const handleOrder = () => {
-       setOrder(!order);
+        setOrder(!order);
+        handleOrderedItems(meal);
     }
     return (
         <div className={order ? "bg-green-500" : "bg-red-600"}>
