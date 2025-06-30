@@ -9,7 +9,7 @@ export default function Meals({promiseFromApi}){
            
              <h1>MyArray length:{foods.meals.length}</h1>
              {
-                foods.meals.map(meal=><Meal meal={meal}></Meal> )
+                foods.meals.map(meal=><Meal key={meal.idMeal} meal={meal}></Meal> )
              }
            
           
