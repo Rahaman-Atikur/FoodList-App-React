@@ -1,12 +1,18 @@
 import { use } from "react"
-
+import Meal from "./meal";
 export default function Meals({promiseFromApi}){
     // console.log(promiseFromApi);
-    const [value] = use(promiseFromApi);
-    console.log(value);
+    const foods = use(promiseFromApi);
+    console.log(foods);
     return(
         <div>
-            <h2>OKK</h2>
+           
+             <h1>MyArray length:{foods.meals.length}</h1>
+             {
+                foods.meals.map(meal=><Meal meal={meal}></Meal> )
+             }
+           
+          
         </div>
     )
 }
