@@ -1,5 +1,7 @@
 export default function Meal({ meal }) {
-    console.log(meal);
+    const handleOrder = ()=>{
+        console.log("Button Clicked");
+    }
     return (
         <div>
             <div className="card card-side bg-base-100 shadow-sm">
@@ -19,7 +21,7 @@ export default function Meal({ meal }) {
                         <tr><td>{meal.strMeasure5}</td></tr>
                     </tbody>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Order</button>
+                        <button onClick={handleOrder} className="btn btn-primary">Order</button>
                     </div>
                 </div>
             </div>
